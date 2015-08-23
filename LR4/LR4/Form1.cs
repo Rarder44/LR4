@@ -13,17 +13,19 @@ namespace LR4
 {
     public partial class Form1 : Form
     {
+        CompressService cs;
 
-        
         public Form1()
         {
             InitializeComponent();
+            cs = new CompressService();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string s=File.ReadAllText("test.txt");
-            GestoreAssociazioni g=Analizza(s);
+            cs.Stringa = s;
+            CompressedString g = cs.Comprimi();
 
         }
 
